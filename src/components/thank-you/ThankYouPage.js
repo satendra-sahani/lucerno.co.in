@@ -9,7 +9,6 @@ export default function ThankYouPage() {
     const [isConfettiActive, setIsConfettiActive] = useState(false)
 
     useEffect(() => {
-       
         confetti({
             particleCount: 500,
             spread: 500,
@@ -85,39 +84,41 @@ export default function ThankYouPage() {
             </motion.div>
 
             {/* Animated background shapes */}
-            {[...Array(5)].map((_, i) => (
-                <motion.div
-                    key={i}
-                    className="absolute rounded-full bg-white opacity-10"
-                    style={{
-                        width: Math.random() * 300 + 50,
-                        height: Math.random() * 300 + 50,
-                        left: `${Math.random() * 100}%`,
-                        top: `${Math.random() * 100}%`,
-                    }}
-                    initial={{ scale: 0, rotate: 0 }}
-                    animate={{
-                        scale: [0, 1, 1.2, 1],
-                        rotate: [0, 360],
-                    }}
-                    transition={{
-                        duration: Math.random() * 10 + 10,
-                        repeat: Infinity,
-                        repeatType: "reverse",
-                        delay: i * 0.2,
-                    }}
-                />
-            ))}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                {[...Array(5)].map((_, i) => (
+                    <motion.div
+                        key={i}
+                        className="absolute rounded-full bg-white opacity-10"
+                        style={{
+                            width: Math.random() * 300 + 50,
+                            height: Math.random() * 300 + 50,
+                            left: `${Math.random() * 100}%`,
+                            top: `${Math.random() * 100}%`,
+                        }}
+                        initial={{ scale: 0, rotate: 0 }}
+                        animate={{
+                            scale: [0, 1, 1.2, 1],
+                            rotate: [0, 360],
+                        }}
+                        transition={{
+                            duration: Math.random() * 10 + 10,
+                            repeat: Infinity,
+                            repeatType: "reverse",
+                            delay: i * 0.2,
+                        }}
+                    />
+                ))}
+            </div>
 
             <style jsx global>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-20px); }
-        }
-        .animate-float {
-          animation: float 3s ease-in-out infinite;
-        }
-      `}</style>
+                @keyframes float {
+                    0%, 100% { transform: translateY(0); }
+                    50% { transform: translateY(-20px); }
+                }
+                .animate-float {
+                    animation: float 3s ease-in-out infinite;
+                }
+            `}</style>
         </div>
     )
 }
