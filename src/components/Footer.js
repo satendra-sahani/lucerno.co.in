@@ -45,25 +45,25 @@ const Footer = () => {
         Subscribe to our newsletter for exclusive offers and design inspiration
       </motion.p>
       <motion.form
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.4 }}
-        className="max-w-md mx-auto flex"
-      >
-        <input
-          type="email"
-          placeholder="Enter your email"
-          className="flex-grow px-4 py-2 rounded-l-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-500"
-        />
-        <motion.button
-          type="submit"
-          className="bg-white text-gray-900 px-6 py-2 rounded-r-md font-semibold hover:bg-gray-100 transition-colors"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          Subscribe
-        </motion.button>
-      </motion.form>
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8, delay: 0.4 }}
+  className="max-w-md w-full mx-auto flex flex-col sm:flex-row space-y-2 sm:space-y-0"
+>
+  <input
+    type="email"
+    placeholder="Enter your email"
+    className="flex-grow w-full px-4 py-2 rounded-md sm:rounded-l-md sm:rounded-r-none text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-500"
+  />
+  <motion.button
+    type="submit"
+    className="bg-white text-gray-900 px-6 py-2 rounded-md sm:rounded-l-none sm:rounded-r-md font-semibold hover:bg-gray-100 transition-colors w-full sm:w-auto"
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+  >
+    Subscribe
+  </motion.button>
+</motion.form>
     </div>
   </section>
 
