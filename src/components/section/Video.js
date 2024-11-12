@@ -36,14 +36,17 @@ const Video = () => {
         ref={videoContainerRef}
         className="relative w-full aspect-video bg-black rounded-lg overflow-hidden group"
       >
-        <iframe
-          className="absolute inset-0 w-full h-full"
-          src="https://www.youtube.com/embed/h07SbtPFTHM?enablejsapi=1"
-          title="The Pebbles Collection by Caesarstone - Shape by Nature"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        />
-
+        <video
+  className="absolute inset-0 w-full h-full"
+  src="/assets/video-2.mp4" // Ensure the video file is in the public/assets folder
+  title="The Pebbles Collection by Caesarstone - Shape by Nature"
+    
+  autoPlay
+  loop
+  muted
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+/>
         {/* Custom Overlay Controls */}
         <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
           <div className="flex items-center gap-4">
