@@ -15,12 +15,12 @@ export default function Footer() {
   ]
 
   const socialLinks = [
-    { href: 'https://facebook.com/caesarstone', icon: FaFacebook, label: 'Facebook' },
-    { href: 'https://instagram.com/caesarstone', icon: FaInstagram, label: 'Instagram' },
-    { href: 'https://twitter.com/caesarstone', icon: FaTwitter, label: 'Twitter' },
-    { href: 'https://youtube.com/caesarstone', icon: FaYoutube, label: 'YouTube' },
-    { href: 'https://pinterest.com/caesarstone', icon: FaPinterest, label: 'Pinterest' },
-    { href: 'https://linkedin.com/company/caesarstone', icon: FaLinkedin, label: 'LinkedIn' },
+    { href: '#', icon: FaFacebook, label: 'Facebook' },
+    { href: '#', icon: FaInstagram, label: 'Instagram' },
+    { href: '#', icon: FaTwitter, label: 'Twitter' },
+    { href: '#', icon: FaYoutube, label: 'YouTube' },
+    { href: '#', icon: FaPinterest, label: 'Pinterest' },
+    { href: '#', icon: FaLinkedin, label: 'LinkedIn' },
   ]
 
   return (
@@ -75,11 +75,11 @@ export default function Footer() {
         {/* Company Description */}
         <div className="text-center text-sm text-gray-300 space-y-2 max-w-4xl mx-auto">
           <p>
-            Caesarstone is a manufacturer of quality quartz surfaces for a range of applications such as kitchen countertops, 
+            Lucerno is a manufacturer of quality quartz surfaces for a range of applications such as kitchen countertops, 
             bathroom vanities and counters, and custom solutions for home and commercial interiors.
           </p>
           <p>
-            Available worldwide, Caesarstone is the professional choice for interior design ideas and beautiful, 
+            Available worldwide, Lucerno is the professional choice for interior design ideas and beautiful, 
             durable quartz surfaces.
           </p>
         </div>
