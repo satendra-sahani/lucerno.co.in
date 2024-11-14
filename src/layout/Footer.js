@@ -6,12 +6,11 @@ import { FiShare2, FiHeart } from 'react-icons/fi';
 export default function Footer() {
   const navLinks = [
     { href: '/', label: 'Home' },
-    { href: '/contact', label: 'Contact Us' },
-    { href: '/us', label: 'Caesarstone US' },
-    { href: '/terms', label: 'Terms of Use' },
-    { href: '/terms-of-sale', label: 'Terms of Sale' },
-    { href: '/cookies', label: 'Cookies Policy' },
-    { href: '/privacy', label: 'Privacy Policy' },
+    { href: '/contact-us', label: 'Contact Us' },
+    { href: '/terms-of-use', label: 'Terms of Use' },
+    { href: '/terms-of-use', label: 'Terms of Sale' },
+    { href: '/terms-of-use', label: 'Cookies Policy' },
+    { href: '/terms-of-use', label: 'Privacy Policy' },
     { href: '/careers', label: 'Careers' },
   ]
 

@@ -1,167 +1,86 @@
 'use client'
 
-import { useState } from 'react'
-import Slider from 'react-slick'
-import { Heart, ShoppingCart, ChevronLeft, ChevronRight } from 'lucide-react'
-import { motion } from 'framer-motion'
-
-// Import required CSS
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
+import { useState, useEffect } from 'react'
+import Image from 'next/image'
+import { motion, AnimatePresence } from 'framer-motion'
 
 const products = [
   {
-    id: 1,
-    category: "Home Decoration",
-    title: "Modern Wall Art Collection",
-    price: "From ₹999/piece",
-    description: "Transform your space with elegant wall decor",
-    image: "/assets/img/modern-wall-at-collection.jpg",
-    offer: "Special Launch Offer",
-    emi: "No Cost EMI from ₹167/month",
-    discount: "30% OFF"
+    name: 'Product Tableware',
+    description: 'Elevate your dining experience with our elegant tableware collection.',
+    src: '/assets/tableware/tableware6.jpg',
   },
   {
-    id: 2,
-    category: "Tableware",
-    title: "Premium Dining Collection",
-    price: "From ₹2499/set",
-    description: "Luxury dining sets for your special moments",
-    image: "/assets/img/premium-dining-collection.jpg",
-    offer: "Festival Sale",
-    emi: "No Cost EMI from ₹208/month",
-    discount: "25% OFF"
+    name: 'Home Decoration',
+    description: 'Transform your space with our exquisite home decor items.',
+    src: '/assets/home-decor/home-bg.jpg',
   },
   {
-    id: 3,
-    category: "Ceramic Tiles",
-    title: "Designer Floor Tiles",
-    price: "From ₹89/sq.ft",
-    description: "Premium quality tiles for modern homes",
-    image: "/assets/img/designer-floor-tiles.jpg",
-    offer: "Bulk Order Discount",
-    emi: "No Cost EMI Available",
-    discount: "20% OFF"
-  }
+    name: 'Caramel Tiles',
+    description: 'Add warmth and style to your floors with our premium caramel tiles.',
+    src: '/assets/ceramic-tiles/classic-white-tile.jpg',
+  },
 ]
 
-function NextArrow(props) {
-  const { onClick } = props
-  return (
-    <button
-      onClick={onClick}
-      className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/80 p-2 rounded-full shadow-lg hover:bg-white transition-all"
-    >
-      <ChevronRight className="w-6 h-6 text-gray-800" />
-    </button>
-  )
-}
+export default function DynamicHero() {
+  const [currentIndex, setCurrentIndex] = useState(0)
 
-function PrevArrow(props) {
-  const { onClick } = props
-  return (
-    <button
-      onClick={onClick}
-      className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/80 p-2 rounded-full shadow-lg hover:bg-white transition-all"
-    >
-      <ChevronLeft className="w-6 h-6 text-gray-800" />
-    </button>
-  )
-}
-export default function ProductSlider() {
-  const [currentSlide, setCurrentSlide] = useState(0)
-
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 5000,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
-    beforeChange: (next) => setCurrentSlide(next),
-    customPaging: (i) => (
-      <div
-        className={`w-3 h-3 rounded-full transition-all duration-300 ${
-          i === currentSlide ? 'bg-primary scale-125' : 'bg-gray-300'
-        }`}
-      />
-    ),
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          arrows: false
-        }
-      }
-    ]
-  }
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % products.length)
+    }, 5000)
+    return () => clearInterval(timer)
+  }, [])
 
   return (
-    <div className="relative w-full mx-auto">
-      <Slider {...settings} className="product-slider">
-        {products.map((product) => (
-          <div key={product.id} className="outline-none">
-            <div className="relative h-[200px] md:h-[500px] bg-gradient-to-r from-cyan-700 to-gray-900">
-              <div className="container mx-auto px-4 h-full">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 h-full items-center">
-                  <div className="text-white space-y-6">
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5 }}
-                    >
-                      <div className="bg-primary-foreground text-primary text-sm mb-4">
-                        {product.offer}
-                      </div>
-                      <h2 className="text-3xl md:text-4xl font-bold mb-2">{product.title}</h2>
-                      <p className="text-xl md:text-2xl mb-2">{product.price}</p>
-                      <p className="text-lg opacity-90">{product.description}</p>
-                      <p className="text-sm mt-4">{product.emi}</p>
-                    </motion.div>
-                    <div className="flex gap-4 ">
-                      <button size="lg" className="bg-white text-gray-900 flex gap-2 items-center px-2 py-2 rounded hover:bg-white/90">
-                        <ShoppingCart className="mr-2 h-5 w-5" />
-                        <span> Shop Now</span>
-                      </button>
-                      <button size="lg" variant="outline" className="bg-transparent flex gap-2 items-center border-white text-white hover:bg-white/20">
-                        <Heart className="mr-2 h-5 w-5" />
-                        <span> Save</span>
-                      </button>
-                    </div>
-                  </div>
-                  <div className="relative h-full flex items-center justify-center">
-                    <div className="absolute top-4 right-4 z-10">
-                      <div className="bg-red-500 text-white rounded-full px-2 py-1">{product.discount}</div>
-                    </div>
-                    <motion.div
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.5 }}
-                      className="relative w-full h-[300px] md:h-[400px] bg-cover rounded shadow-xl bg-center"
-                      style={{ backgroundImage: `url(${product.image})` }}
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </Slider>
+    <section className="relative h-screen w-full overflow-hidden">
+      <AnimatePresence initial={false}>
+        <motion.div
+          key={currentIndex}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1 }}
+          className="absolute inset-0"
+        >
+          <Image
+            src={products[currentIndex].src}
+            alt={products[currentIndex].name}
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-black bg-opacity-50" />
+        </motion.div>
+      </AnimatePresence>
 
-      <style jsx global>{`
-        .product-slider .slick-dots {
-          bottom: 20px;
-        }
-        .product-slider .slick-dots li {
-          margin: 0 4px;
-        }
-        .product-slider .slick-dots li button:before {
-          display: none;
-        }
-      `}</style>
-    </div>
+      <div className="relative z-10 flex h-full items-center justify-center">
+        <div className="container mx-auto px-4 text-center text-white">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentIndex}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
+            >
+              <h1 className="mb-4 text-4xl font-bold sm:text-5xl md:text-6xl">
+                Discover Our{' '}
+                <span className="text-primary">{products[currentIndex].name}</span>
+              </h1>
+              <p className="mx-auto mb-8 max-w-2xl text-lg sm:text-xl md:text-2xl">
+                {products[currentIndex].description}
+              </p>
+              <a
+                href="/lucerno-porcelain-collection"
+                className="inline-block rounded-full border border-white bg-primary px-8 py-3 text-lg font-semibold text-white transition-colors hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-gray-900"
+              >
+                Explore Now
+              </a>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </div>
+    </section>
   )
 }

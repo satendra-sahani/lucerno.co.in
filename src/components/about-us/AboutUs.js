@@ -51,10 +51,10 @@ export default function AboutPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-background">
-      <animated.header ref={headerRef} style={headerAnimation} className="bg-primary text-primary-foreground py-20 text-center">
-        <h1 class="text-6xl font-extrabold text-center text-gray-700 bg-clip-text bg-gradient-to-r from-pink-300 to-blue-300 mb-12">About Our Company</h1>
-        <p className="text-xl md:text-2xl">Crafting Excellence in Home Decor</p>
+    <div className="min-h-screen bg-background ">
+      <animated.header ref={headerRef} style={headerAnimation} className="bg-gradient-to-r from-cyan-700 to-gray-900   text-primary-foreground  text-center p-3">
+        <h1 class="text-6xl font-extrabold text-center text-white mb-12">About Our Company</h1>
+        <p className="text-xl md:text-2xl text-white">Crafting Excellence in Home Decor</p>
       </animated.header>
 
       <main className="container mx-auto px-4 py-16">

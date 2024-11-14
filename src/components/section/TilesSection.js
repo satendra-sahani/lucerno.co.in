@@ -69,7 +69,7 @@ export default function TilesSection() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Shop Now
+          <a href='/lucerno-porcelain-collection'>Explore Now</a>
           </motion.button>
         </motion.div>
       </div>

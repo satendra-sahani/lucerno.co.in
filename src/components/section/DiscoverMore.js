@@ -37,8 +37,8 @@ export default function HomeDecorProductGrid() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <ShoppingCart size={20} />
-            <span>Shop Collection</span>
+           
+           <a href='/lucerno-porcelain-collection'> <span>Explore Now</span></a>
           </motion.button>
         </motion.div>
         <motion.div 
@@ -62,15 +62,6 @@ export default function HomeDecorProductGrid() {
                   fill
                   className="object-cover transition-transform duration-300 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <motion.button
-                    className="bg-gray-700 text-gray-900 px-4 py-2 rounded-full  transition-colors duration-300"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    Add to Cart
-                  </motion.button>
-                </div>
               </div>
               <motion.div 
                 className="p-4"

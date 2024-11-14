@@ -12,7 +12,7 @@ const menuItems = [
   {
     name: 'Design Inspiration',
     dropdown: [
-      { name: 'Caesarstone Porcelain Collection', href: '/caesarstone-porcelain-collection' },
+      { name: 'Lucerno Porcelain Collection', href: '/lucerno-porcelain-collection' },
       { name: 'Whitelight Collection', href: '/whitelight-collection' },
       { name: 'Milano 2022: Nature Awakens', href: '/milano-nature-awakens' }
     ]
@@ -22,7 +22,7 @@ const menuItems = [
     dropdown: [
       { name: 'Care & Maintenance', href: '/care-maintenance' },
       { name: 'Warranty', href: '/warranty' },
-      { name: 'Caesarstone Hygiene Standard', href: '/caesarstone-hygiene-standard' },
+      { name: 'Lucerno Hygiene Standard', href: '/lucerno-hygiene-standard' },
       { name: 'Products Technical Info', href: '/products-technical-info' },
       { name: 'FAQ', href: '/customer-service/faq' },
     ]
@@ -53,12 +53,12 @@ export default function Header() {
   }
 
   return (
-    <header className={`sticky top-0 z-50 bg-white border-b border-gray-200 transition-all duration-300 ${scrolled ? 'shadow-lg' : ''}`}>
+    <header className={`sticky top-0 z-50 bg-gradient-to-r from-cyan-700 to-gray-900  border-b border-gray-200 transition-all duration-300 ${scrolled ? 'shadow-lg' : ''}`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
-            <Image src="/assets/web-logo.png" alt="Logo" width={96} height={40} />
+            <img src="/assets/white-logo.png" className='  w-40 h-auto' alt="Logo" />
           </Link>
 
           {/* Desktop Menu */}
@@ -66,7 +66,7 @@ export default function Header() {
             {menuItems.map((item, index) => (
               <div key={item.name} className="relative group">
                 {item.href ? (
-                  <Link href={item.href} className="text-gray-600 hover:text-orange-700 transition-colors">
+                  <Link href={item.href} className="text-white hover:text-orange-500 transition-colors">
                     {item.name}
                   </Link>
                 ) : (
@@ -74,8 +74,8 @@ export default function Header() {
                     onClick={() => handleDropdown(index)}
                     className="text-gray-600 hover:text-orange-700 transition-colors flex items-center space-x-1"
                   >
-                    <span>{item.name}</span>
-                    <ChevronDown className="w-4 h-4" />
+                    <span className='text-white'>{item.name}</span>
+                    <ChevronDown className="w-4 h-4 text-white" />
                   </button>
                 )}
 
@@ -109,11 +109,11 @@ export default function Header() {
           {/* Cart Icon */}
           <div className="relative flex gap-2 items-center">
       {/* Heart Icon */}
-      <Heart className="w-6 h-6 text-red-500" />
+      <Heart className="w-6 h-6  cursor-pointer hidden lg:flex text-white" />
 
       {/* Shopping Cart with Notification Badge */}
-      <div className="relative">
-       <a href='/favorites'><ShoppingCart className="w-6 h-6 text-gray-600 cursor-pointer" /></a> 
+      <div className="relative hidden lg:flex">
+       <a href='/favorites'><ShoppingCart className="w-6 h-6 text-white cursor-pointer" /></a> 
         {/* Badge */}
         <div className="absolute -top-2 -right-2 h-5 w-5 bg-orange-700 text-white rounded-full flex items-center justify-center text-xs">
           0
@@ -123,9 +123,9 @@ export default function Header() {
       {/* Search Icon */}
       <button
         onClick={handleSearchClick}
-        className="w-6 h-6 text-gray-600 flex items-center justify-center ml-2 cursor-pointer"
+        className="w-6 h-6 text-gray-600 flex items-center justify-center ml-2 cursor-pointer hidden lg:flex"
       >
-        <Search className="w-6 h-6" />
+        <Search className="w-6 h-6 text-white" />
       </button>
 
       {/* Search Input */}
@@ -145,13 +145,23 @@ export default function Header() {
     </div>
 
           {/* Mobile Menu Toggle */}
+          <div className='flex gap-4 items-center'>
+          <div className="relative lg:hidden">
+       <a href='/favorites'><ShoppingCart className="w-6 h-6 text-white cursor-pointer" /></a> 
+        {/* Badge */}
+        <div className="absolute -top-2 -right-2 h-5 w-5 bg-orange-700 text-white rounded-full flex items-center justify-center text-xs">
+          0
+        </div>
+      </div>
           <button
             className="lg:hidden text-gray-600 hover:text-gray-900"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isMobileMenuOpen ? <X className="w-6 h-6 text-white" /> : <Menu className="w-6 h-6 text-white" />}
           </button>
         </div>
+        </div>
+       
 
         {/* Mobile Menu */}
         <AnimatePresence>
@@ -160,7 +170,7 @@ export default function Header() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="lg:hidden bg-white"
+              className="lg:hidden bg-gradient-to-r from-cyan-700 to-gray-900  text-white"
             >
               <nav className="py-4">
                 {menuItems.map((item, index) => (
@@ -171,9 +181,9 @@ export default function Header() {
                           onClick={() => handleDropdown(index)}
                           className="flex items-center justify-between w-full py-2 text-gray-600 hover:text-gray-900"
                         >
-                          <span>{item.name}</span>
+                          <span className='text-white'>{item.name}</span>
                           <ChevronDown
-                            className={`w-4 h-4 transition-transform ${openDropdown === index ? 'rotate-180' : ''}`}
+                            className={`w-4 h-4 transition-transform text-white ${openDropdown === index ? 'rotate-180' : ''}`}
                           />
                         </button>
                         <AnimatePresence>
@@ -188,7 +198,7 @@ export default function Header() {
                                 <Link
                                   key={subItem.name}
                                   href={subItem.href}
-                                  className="block py-2 text-gray-600 hover:text-gray-900"
+                                  className="block py-2 text-white hover:text-gray-900"
                                 >
                                   {subItem.name}
                                 </Link>
@@ -199,7 +209,7 @@ export default function Header() {
                       </>
                     )}
                     {item.href && (
-                      <Link href={item.href} className="block py-2 text-gray-600 hover:text-gray-900">
+                      <Link href={item.href} className="block py-2 text-white hover:text-gray-900">
                         {item.name}
                       </Link>
                     )}

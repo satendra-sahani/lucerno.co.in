@@ -21,7 +21,7 @@ export default function Favorites() {
      
   const [isEmailModalOpen, setIsEmailModalOpen] = useState(false)
   return (
-    <div className=" bg-white p-4 md:p-6 lg:p-8">
+    <div className=" bg-white p-4 md:p-6 lg:p-8 max-h-screen">
       {/* Breadcrumb */}
       <nav className="mb-6 flex items-center gap-2 text-sm">
         <Link href="/" className="text-orange-500 hover:text-orange-600 transition-colors">
