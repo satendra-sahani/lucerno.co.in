@@ -21,7 +21,6 @@ export default function SimilarProduct() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 md:px-6 lg:px-8 mt-5">
       <div className="grid gap-12 lg:grid-cols-2">
-        {/* Care and Maintenance Section */}
         <motion.section
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -49,7 +48,6 @@ export default function SimilarProduct() {
           </ul>
         </motion.section>
 
-        {/* Technical Information Section */}
         <motion.section
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -74,7 +72,6 @@ export default function SimilarProduct() {
         </motion.section>
       </div>
 
-      {/* Similar Models Section */}
       <motion.section
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -99,10 +96,8 @@ export default function SimilarProduct() {
               <p className="mt-3">{model.name}</p>
             </Link>
           ))}
-          </div>
+        </div>
       </motion.section>
-
-      {/* Available Edges Section */}
       <motion.section
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

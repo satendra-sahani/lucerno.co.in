@@ -1,78 +1,87 @@
-import React from 'react';
+import Image from "next/image"
+import { Plus } from 'lucide-react'
 import { BiChevronLeft } from 'react-icons/bi';
-import { Star, Eye, Download } from 'lucide-react'
-import Image from 'next/image';
-import { products } from '../data/Products';
 
-const Products = () => {
-  
-    return (
-        <div className="mt-5 container w-full mx-auto p-4">
-            <p className="flex items-center">
-                <span className="text-sm text-orange-500">Home</span>
-                <BiChevronLeft className="w-5 h-5 ml-2" />
-                <span className="text-sm text-gray-600">Products</span>
-            </p>
-            <h2 className="text-5xl mt-5 text-gray-600">Products</h2>
+export default function Component() {
+  const tiles = [
+    {
+      name: "Alabaster Natural-N",
+      image: "/assets/home-page-img/prod1.jpg",
+      specs: "Glazed Vitrified Tiles,800X1600 mm"
+    },
+    {
+      name: "Aquatic Ocean-N",
+      image: "/assets/home-page-img/prod2.jpg",
+      specs: "Glazed Vitrified Tiles,800X1600 mm"
+    },
+    {
+      name: "Bahia Silver Infinite-N",
+      image: "/assets/home-page-img/prod3.jpg",
+      specs: "Glazed Vitrified Tiles,800X1600 mm"
+    },
+    {
+      name: "Baxter Silver (C)-N",
+      image: "/assets/home-page-img/prod1.jpg",
+      specs: "Glazed Vitrified Tiles,800X1600 mm"
+    },
+    {
+      name: "Bayona Sand-N",
+      image: "/assets/home-page-img/prod2.jpg",
+      specs: "Glazed Vitrified Tiles,800X1600 mm"
+    },
+    {
+      name: "Bianco Venato Infinite-N",
+      image: "/assets/home-page-img/prod3.jpg",
+      specs: "Glazed Vitrified Tiles,800X1600 mm"
+    },
+    {
+      name: "Calacatta Imperial Gold-N",
+      image: "/assets/home-page-img/prod1.jpg",
+      specs: "Glazed Vitrified Tiles,800X1600 mm"
+    },
+    {
+      name: "Cambria Grey-N",
+      image: "/assets/home-page-img/prod2.jpg",
+      specs: "Glazed Vitrified Tiles,800X1600 mm"
+    }
+  ]
 
-            {/* Grid Layout */}
-            {products.map((item) => (
-                <div key={item.id} className="mb-8 mt-5"  >
-                    <div className="grid grid-cols-1 md:grid-cols-12 gap-4 group">
-                        
-                        {/* Main Image Container */}
-                        <div className="col-span-12 md:col-span-8">
-                            <div className="relative h-[200px] bg-gray-200 rounded-lg overflow-hidden w-full">
-                                <Image
-                                    src={item.img1}
-                                    alt={`${item.title} - Main View`}
-                                    fill
-                                    className="object-cover w-full h-full"
-                                />
-                            </div>
-                        </div>
-
-                        {/* Secondary Image Container */}
-                        <div className="col-span-12 md:col-span-4">
-                            <div className="relative h-[200px] bg-gray-200 rounded-lg overflow-hidden w-full">
-                                <Image
-                                    src={item.img2}
-                                    alt={`${item.title} - Secondary View`}
-                                    fill
-                                    className="object-cover w-full h-full"
-                                />
-                            </div>
-                        </div>
-
-                        {/* Action Buttons */}
-                        <div className="col-span-12 relative">
-                            <div className="absolute right-0 -bottom-2 flex gap-4 bg-white py-3 px-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                                <button className="flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors">
-                                    <Star className="w-5 h-5 text-orange-500" />
-                                    <span className="text-sm whitespace-nowrap hover:text-orange-500">Add to Favorites</span>
-                                </button>
-                                <button className="flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors">
-                                    <Eye className="w-5 h-5 text-orange-500" />
-                                    <span className="text-sm whitespace-nowrap hover:text-orange-500">Visualizer</span>
-                                </button>
-                                <button className="flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors">
-                                    <Download className="w-5 h-5 text-orange-500" />
-                                    <span className="text-sm whitespace-nowrap hover:text-orange-500">Download</span>
-                                </button>
-                            </div>
-                        </div>
-
-                        {/* Title Section */}
-                        <div className="col-span-12 md:col-span-8">
-                            <h3 className="text-lg font-semibold text-gray-900 px-2 cursor-pointer hover:text-orange-500">
-                                <a href='/products-details'>{item.title}</a>
-                            </h3>
-                        </div>
-                    </div>
-                </div>
-            ))}
-        </div>
-    );
-};
-
-export default Products;
+  return (
+    <div className="w-full px-4 py-8 md:px-6 lg:px-8 container mx-auto">
+      <p className="flex items-center">
+        <span className="text-sm text-orange-500">Home</span>
+        <BiChevronLeft className="w-5 h-5 ml-2" />
+        <span className="text-sm text-gray-600">Products</span>
+      </p>
+      <h2 className="text-5xl mt-5 text-gray-600">Products</h2>
+      <div className="flex items-center justify-center mb-8 text-gray-800">
+        <div className="h-[1px] w-12 bg-gray-300"></div>
+        <span className="mx-4 text-lg font-medium">800 X 1600 mm</span>
+        <div className="h-[1px] w-12 bg-gray-300"></div>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {tiles.map((tile, index) => (
+          <div key={index} className="flex flex-col">
+            <div className="relative aspect-[1.6] w-full mb-3 bg-gray-100">
+              <Image
+                src={tile.image}
+                alt={tile.name}
+                fill
+                className="object-cover"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+              />
+            </div>
+            <div className="space-y-2">
+              <h3 className="font-medium text-gray-900">{tile.name}</h3>
+              <p className="text-sm text-gray-500">{tile.specs}</p>
+              <button className="inline-flex items-center text-sm text-gray-700 hover:text-gray-900">
+                <Plus className="w-4 h-4 mr-1" />
+                Add to Catalog
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}

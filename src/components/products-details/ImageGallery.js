@@ -1,4 +1,4 @@
-// ImageGallery.js
+
 import React, { useState } from 'react';
 
 const images = [
@@ -21,9 +21,8 @@ const ImageGallery = () => {
         <div
           key={index}
           onClick={() => handleImageClick(index)}
-          className={`border-2 w-[300px] h-[300px] overflow-hidden p-1 transition-all duration-300 cursor-pointer ${
-            index === activeIndex ? 'border-red-500' : 'border-black'
-          }`}
+          className={`border-2 w-[300px] h-[300px] overflow-hidden p-1 transition-all duration-300 cursor-pointer ${index === activeIndex ? 'border-red-500' : 'border-black'
+            }`}
         >
           <img
             src={image.src}

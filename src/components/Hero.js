@@ -1,86 +1,69 @@
-'use client'
+import Slider from "react-slick";
+import Image from "next/image";
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
-import { useState, useEffect } from 'react'
-import Image from 'next/image'
-import { motion, AnimatePresence } from 'framer-motion'
+const ResponsiveSlider = () => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
 
-const products = [
-  {
-    name: 'Product Tableware',
-    description: 'Elevate your dining experience with our elegant tableware collection.',
-    src: '/assets/tableware/tableware6.jpg',
-  },
-  {
-    name: 'Home Decoration',
-    description: 'Transform your space with our exquisite home decor items.',
-    src: '/assets/home-decor/home-bg.jpg',
-  },
-  {
-    name: 'Caramel Tiles',
-    description: 'Add warmth and style to your floors with our premium caramel tiles.',
-    src: '/assets/ceramic-tiles/classic-white-tile.jpg',
-  },
-]
-
-export default function DynamicHero() {
-  const [currentIndex, setCurrentIndex] = useState(0)
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % products.length)
-    }, 5000)
-    return () => clearInterval(timer)
-  }, [])
+  const slides = [
+    { id: 1, src: "/assets/home-page-img/banner1.jpg", alt: "Slide 1" },
+    { id: 2, src: "/assets/home-page-img/banner2.jpg", alt: "Slide 2" },
+    { id: 3, src: "/assets/home-page-img/banner3.jpg", alt: "Slide 3" },
+    { id: 4, src: "/assets/home-page-img/banner4.jpg", alt: "Slide 4" },
+    { id: 5, src: "/assets/home-page-img/banner5.jpg", alt: "Slide 5" },
+  ];
 
   return (
-    <section className="relative h-screen w-full overflow-hidden">
-      <AnimatePresence initial={false}>
-        <motion.div
-          key={currentIndex}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 1 }}
-          className="absolute inset-0"
-        >
-          <Image
-            src={products[currentIndex].src}
-            alt={products[currentIndex].name}
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-black bg-opacity-50" />
-        </motion.div>
-      </AnimatePresence>
+    <div className="w-full mx-auto  max-h-[600px] overflow-hidden custom-dots">
+      <Slider {...settings}>
+        {slides.map((slide) => (
+          <div key={slide.id} className="relative max-h-[600px] h-[600px] flex justify-center items-center">
+            <Image
+              src={slide.src}
+              alt={slide.alt}
+              layout="fill"
+              objectFit="cover"
+              className="rounded-lg"
+            />
+          </div>
+        ))}
+      </Slider>
+    </div>
+  );
+};
 
-      <div className="relative z-10 flex h-full items-center justify-center">
-        <div className="container mx-auto px-4 text-center text-white">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentIndex}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
-            >
-              <h1 className="mb-4 text-4xl font-bold sm:text-5xl md:text-6xl">
-                Discover Our{' '}
-                <span className="text-primary">{products[currentIndex].name}</span>
-              </h1>
-              <p className="mx-auto mb-8 max-w-2xl text-lg sm:text-xl md:text-2xl">
-                {products[currentIndex].description}
-              </p>
-              <a
-                href="/lucerno-porcelain-collection"
-                className="inline-block rounded-full border border-white bg-primary px-8 py-3 text-lg font-semibold text-white transition-colors hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-gray-900"
-              >
-                Explore Now
-              </a>
-            </motion.div>
-          </AnimatePresence>
-        </div>
-      </div>
-    </section>
-  )
-}
+export default ResponsiveSlider;

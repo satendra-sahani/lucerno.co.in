@@ -1,78 +1,61 @@
-'use client'
-
-import { useState } from 'react'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
 
-const products = [
-  { id: 1, name: 'Marble Finish Tile', price: '₹89/sq.ft', image: '/assets/ceramic-tiles/marble-finish-tile.jpg' },
-  { id: 2, name: 'Wooden Texture Tile', price: '₹99/sq.ft', image: '/assets/ceramic-tiles/wooden-texture-tile.jpg' },
-  { id: 3, name: 'Classic White Tile', price: '₹79/sq.ft', image: '/assets/ceramic-tiles/classic-white-tile.jpg' },
-  { id: 4, name: 'Granite Look Tile', price: '₹109/sq.ft', image: '/assets/ceramic-tiles/granite-look-tile.jpg' },
-]
-
-export default function TilesSection() {
-  const [hoveredId, setHoveredId] = useState(null)
-
+export default function Component() {
   return (
-    <div className="container mx-auto px-4 py-8 mt-5">
-      <h1 className="text-6xl font-extrabold text-center text-gray-700 bg-clip-text bg-gradient-to-r from-pink-300 to-blue-300 mb-12">Ceramic Tiles</h1>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-5">
-        <motion.div 
-          className="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          {products.map((product) => (
-            <motion.div
-              key={product.id}
-              className="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer"
-              whileHover={{ scale: 1.05 }}
-              onHoverStart={() => setHoveredId(product.id)}
-              onHoverEnd={() => setHoveredId(null)}
-            >
-              <div className="relative h-64">
+    <section className="w-full py-12 md:py-16 lg:py-20">
+      <div className="container px-4 md:px-6 mx-auto">
+        <h2 className="text-3xl font-bold tracking-tighter text-center mb-8 md:mb-12 lg:text-4xl">
+          Featured Collections
+        </h2>
+
+        <div className="grid gap-6 md:grid-cols-2 lg:gap-10">
+          <div className="overflow-hidden">
+            <div className="p-0">
+              <div className="p-6">
+                <h3 className="text-2xl font-bold mb-2">THE 2 BY 4 COLLECTION - 600X1200</h3>
+                <p className="text-muted-foreground mb-4">
+                  Our latest collection of 600 by 1200 tiles, draws inspiration from the timeless
+                  elegance of marble, the earthy charm of stone, the warmth of wood, and the brush
+                  strokes of...
+                </p>
+              </div>
+              <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
-                  src={product.image}
-                  alt={product.name}
+                  src="/assets/home-page-img/collection1.jpg"
+                  alt="Modern bathroom interior with blue tiles and white bathtub"
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform hover:scale-105 duration-300"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                  priority
                 />
               </div>
-              <motion.div 
-                className="p-4"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: hoveredId === product.id ? 1 : 0.8 }}
-              >
-                <h3 className="text-lg font-semibold">{product.name}</h3>
-                <p className="text-gray-600">{product.price}</p>
-              </motion.div>
-            </motion.div>
-          ))}
-        </motion.div>
-        <motion.div 
-          className="bg-gray-100 p-6 rounded-lg"
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          <h2 className="text-2xl font-bold mb-4">Our Ceramic Tiles Collection</h2>
-          <p className="text-gray-700 mb-4">
-            Discover our premium range of ceramic tiles, designed to bring elegance and durability to any space. From marble finishes to wooden textures, our collection offers a variety of styles for modern homes.
-          </p>
-          <p className="text-gray-700 mb-4">
-            Each tile is crafted with high-quality materials, ensuring longevity and beauty. Whether you're looking for tiles to transform your living room, kitchen, or bathroom, our selection offers something for every taste and space.
-          </p>
-          <motion.button
-            className="bg-gray-700 text-white px-6 py-2 rounded-full hover:bg-primary-dark transition-colors duration-300"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-          <a href='/lucerno-porcelain-collection'>Explore Now</a>
-          </motion.button>
-        </motion.div>
+
+            </div>
+          </div>
+          <div className="overflow-hidden">
+            <div className="p-0">
+              <div className="p-6">
+                <h3 className="text-2xl font-bold mb-2">KRATOS COLLECTION 2023</h3>
+                <p className="text-muted-foreground mb-4">
+                  Kratos collection consists of tiles which to be used in outdoor areas like garden,
+                  parking area, outside swimming pool, on the terrace and balcony.
+                </p>
+              </div>
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <Image
+                  src="/assets/home-page-img/collection2.jpg"
+                  alt="Outdoor terrace with modern furniture and terrazzo tiles"
+                  fill
+                  className="object-cover transition-transform hover:scale-105 duration-300"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                  priority
+                />
+              </div>
+
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   )
 }

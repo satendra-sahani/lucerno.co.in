@@ -1,82 +1,127 @@
-import React from 'react'
+'use client'
+
+import { useState } from 'react'
 import Image from 'next/image'
+import { motion } from 'framer-motion'
 
-const CeramicTilesSection = () => {
 
-    const img=[
-        {
-            img:"/assets/ceramic-tiles/classic-white-tile.jpg ",
-            title:"Ceramic Tiles",
-        },
-        {
-            img:"/assets/ceramic-tiles/granite-look-tile.jpg ",
-            title:"Ceramic Tiles",
-        },
-        {
-            img:"/assets/ceramic-tiles/classic-white-tile.jpg ",
-            title:"Ceramic Tiles",
-        },
-        {
-            img:"/assets/ceramic-tiles/wooden-texture-tile.jpg ",
-            title:"Ceramic Tiles",
-        },
-        {
-            img:"/assets/ceramic-tiles/wooden-texture-tile.jpg ",
-            title:"Ceramic Tiles",
-        },
-        {
-            img:"/assets/ceramic-tiles/granite-look-tile.jpg ",
-            title:"Ceramic Tiles",
-        },
-        {
-            img:"/assets/ceramic-tiles/wooden-texture-tile.jpg ",
-            title:"Ceramic Tiles",
-        },
-        {
-            img:"/assets/ceramic-tiles/classic-white-tile.jpg ",
-            title:"Ceramic Tiles",
-        },
-        {
-            img:"/assets/ceramic-tiles/classic-white-tile.jpg ",
-            title:"Ceramic Tiles",
-        },
-    ]
+
+const ceramicTiles = [
+  {
+    id: 1,
+    name: "Moroccan Mosaic",
+    description: "Intricate patterns inspired by traditional Moroccan designs.",
+    imageUrl: "/assets/ceramic-tiles/classic-white-tile.jpg",
+    category: "Mosaic",
+    price: "$12.99/sqft"
+  },
+  {
+    id: 2,
+    name: "Minimalist White",
+    description: "Clean, simple white tiles for a modern look.",
+    imageUrl: "/assets/ceramic-tiles/granite-look-tile.jpg",
+    category: "Solid",
+    price: "$8.99/sqft"
+  },
+  {
+    id: 3,
+    name: "Rustic Terracotta",
+    description: "Warm, earthy tones perfect for a cozy atmosphere.",
+    imageUrl: "/assets/ceramic-tiles/marble-finish-tile.jpg",
+    category: "Terracotta",
+    price: "$10.99/sqft"
+  },
+  {
+    id: 4,
+    name: "Blue Porcelain",
+    description: "Elegant blue and white porcelain tiles with delicate patterns.",
+    imageUrl: "/assets/ceramic-tiles/wooden-texture-tile.jpg",
+    category: "Porcelain",
+    price: "$14.99/sqft"
+  },
+  {
+    id: 5,
+    name: "Geometric Grey",
+    description: "Modern geometric patterns in various shades of grey.",
+    imageUrl: "/assets/ceramic-tiles/marble-finish-tile.jpg",
+    category: "Patterned",
+    price: "$11.99/sqft"
+  },
+  {
+    id: 6,
+    name: "Natural Stone",
+    description: "Authentic stone tiles for a luxurious, natural look.",
+    imageUrl: "/assets/ceramic-tiles/classic-white-tile.jpg",
+    category: "Stone",
+    price: "$16.99/sqft"
+  }
+]
+
+export default function CeramicTiles() {
+
   return (
-    <section className="py-16 px-4 md:px-8 lg:px-16">
-    <div className="container mx-auto">
-    <h1 class="text-6xl font-extrabold text-center text-gray-700 bg-clip-text bg-gradient-to-r from-pink-300 to-blue-300 mb-12">Ceramic Tiles</h1>
-      <div className="flex flex-col lg:flex-row gap-8">
-        <div className="lg:w-1/2 space-y-4">
-          <h3 className="text-2xl font-semibold">Durable Beauty for Your Floors and Walls</h3>
-          <p className="text-muted-foreground">
-            Our ceramic tiles offer the perfect blend of durability and style. With a wide range of colors, patterns, and textures, you'll find the ideal tiles to complement any room in your home.
-          </p>
-          <ul className="list-disc list-inside space-y-2">
-            <li>Easy to clean and maintain</li>
-            <li>Resistant to stains and scratches</li>
-            <li>Suitable for both indoor and outdoor use</li>
-            <li>Eco-friendly and long-lasting</li>
-          </ul>
-          <button>View Tile Collection</button>
-        </div>
-        <div className="lg:w-1/2">
-          <div className="grid grid-cols-3 gap-2">
-            {img.map((item, index) => (
-              <img
-                key={index}
-                src={item.img}
-                alt={item.title}
-                width={200}
-                height={200}
-                className="rounded-md shadow-sm"
-              />
-            ))}
-          </div>
+    <section className="w-full bg-gradient-to-r from-gray-50 to-gray-100">
+      <div className="container px-4 md:px-6 mx-auto">
+        <motion.h2
+          className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          Exquisite Ceramic Tiles
+        </motion.h2>
+        <motion.p
+          className="text-xl text-muted-foreground text-center mb-12 max-w-2xl mx-auto"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          Transform your space with our stunning collection of ceramic tiles.
+        </motion.p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {ceramicTiles.map((tile, index) => (
+            <motion.div
+              key={tile.id}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <div
+                className="overflow-hidden transition-all duration-300 hover:shadow-lg"
+              >
+                <div className="p-0">
+                  <div className="relative aspect-square w-full overflow-hidden">
+                    <Image
+                      src={tile.imageUrl}
+                      alt={tile.name}
+                      layout="fill"
+                      objectFit="cover"
+                      className="transition-all duration-300 hover:scale-110"
+                    />
+                    <div className="absolute top-2 right-2 bg-primary text-white text-primary-foreground">
+                      {tile.category}
+                    </div>
+                  </div>
+                  <motion.div
+                    className="p-4"
+                    initial={{ opacity: 1, y: 20 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <h3 className="text-lg font-semibold mb-2">{tile.name}</h3>
+                    <p className="text-sm  mb-4">{tile.description}</p>
+                    <div className="flex justify-between items-center">
+                      <span className="text-lg font-bold">{tile.price}</span>
+                      <button className="bg-primary text-primary-foreground px-4 py-2 border rounded-md  transition-colors">
+                        <a href='/products'>  View Details</a>
+                      </button>
+                    </div>
+                  </motion.div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
-    </div>
-  </section>
+    </section>
   )
 }
-
-export default CeramicTilesSection

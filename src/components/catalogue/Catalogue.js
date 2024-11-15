@@ -5,21 +5,20 @@ import Image from 'next/image';
 import { catalog } from '../data/Products';
 
 const Catalogue = () => {
-  
-    return (
-        <div className="mt-5 container w-full mx-auto">
-            <p className="flex items-center">
-                <span className="text-sm text-orange-500">Home</span>
-                <BiChevronLeft className="w-5 h-5 ml-2" />
-                <span className="text-sm text-gray-600">Catalog</span>
-            </p>
-            <h2 className="text-5xl mt-5 text-gray-600">Catalog</h2>
 
-            {/* Grid Layout */}
-            {catalog.map((item) => (
+  return (
+    <div className="mt-5 container w-full mx-auto">
+      <p className="flex items-center">
+        <span className="text-sm text-orange-500">Home</span>
+        <BiChevronLeft className="w-5 h-5 ml-2" />
+        <span className="text-sm text-gray-600">Catalog</span>
+      </p>
+      <h2 className="text-5xl mt-5 text-gray-600">Catalog</h2>
+
+
+      {catalog.map((item) => (
         <div key={item.id} className="mb-8">
           <div className="grid grid-cols-12 gap-4 group">
-            {/* Main Image Container */}
             <div className="col-span-12 md:col-span-8">
               <div className="relative h-[200px] bg-gray-200 rounded-lg overflow-hidden">
                 <Image
@@ -32,7 +31,6 @@ const Catalogue = () => {
               </div>
             </div>
 
-            {/* Secondary Image Container */}
             <div className="col-span-12 md:col-span-4">
               <div className="relative h-[200px] bg-gray-200 rounded-lg overflow-hidden">
                 <Image
@@ -45,11 +43,10 @@ const Catalogue = () => {
               </div>
             </div>
 
-            {/* Action Buttons - Positioned relative to the grid */}
             <div className="col-span-12 relative">
               <div className="absolute right-0 -bottom-2 flex gap-4 bg-white py-3 px-4  opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
                 <button className="flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors">
-                  <Star className="w-5 h-5 text-orange-500"  />
+                  <Star className="w-5 h-5 text-orange-500" />
                   <span className="text-sm whitespace-nowrap hover:text-orange-500">Add to Favorites</span>
                 </button>
                 <button className="flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors">
@@ -62,8 +59,6 @@ const Catalogue = () => {
                 </button>
               </div>
             </div>
-
-            {/* Title Section */}
             <div className="col-span-12 md:col-span-8">
               <h3 className="text-lg font-semibold text-gray-900 px-2">
                 {item.title}
@@ -74,8 +69,8 @@ const Catalogue = () => {
       ))}
 
 
-        </div>
-    );
+    </div>
+  );
 };
 
 export default Catalogue;

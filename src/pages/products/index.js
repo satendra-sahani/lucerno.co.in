@@ -1,3 +1,4 @@
+import Hero from '@/components/products/Hero'
 import Products from '@/components/products/Products'
 import Footer from '@/layout/Footer'
 import Header from '@/layout/Header'
@@ -7,6 +8,7 @@ const index = () => {
   return (
     <div>
         <Header/>
+        <Hero/>
         <Products/>
         <Footer/>
     </div>

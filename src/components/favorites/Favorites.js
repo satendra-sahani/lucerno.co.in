@@ -15,14 +15,12 @@ export default function Favorites() {
     window.print()
   }
 
-  const handleEmail = () => {
-    window.location.href = 'mailto:?subject=My Favorites&body=Check out my favorites'
-  }
-     
+
+
   const [isEmailModalOpen, setIsEmailModalOpen] = useState(false)
   return (
     <div className=" bg-white p-4 md:p-6 lg:p-8 max-h-screen">
-      {/* Breadcrumb */}
+
       <nav className="mb-6 flex items-center gap-2 text-sm">
         <Link href="/" className="text-orange-500 hover:text-orange-600 transition-colors">
           Home
@@ -31,11 +29,10 @@ export default function Favorites() {
         <span className="text-gray-600">Favorites</span>
       </nav>
 
-      {/* Header Section */}
       <div className="mb-8 space-y-4">
         <div className="flex items-start justify-between">
           <motion.div layout className="space-y-4">
-            <button 
+            <button
               onClick={() => setIsFavoritesOpen(!isFavoritesOpen)}
               className="flex items-center gap-2 text-3xl font-light text-gray-800 hover:text-gray-600 transition-colors"
             >
@@ -50,7 +47,7 @@ export default function Favorites() {
                   exit={{ height: 0, opacity: 0 }}
                   className="pl-4"
                 >
-                  <button 
+                  <button
                     onClick={() => setIsModelOpen(!isModelOpen)}
                     className="flex items-center gap-2 text-xl text-gray-600 hover:text-gray-800 transition-colors"
                   >
@@ -70,25 +67,22 @@ export default function Favorites() {
             >
               <Printer className="w-6 h-6" />
             </button>
-      {/* Button to open the modal */}
-      <button
-        onClick={() => setIsEmailModalOpen(true)}
-        className="text-orange-500 hover:text-orange-600 transition-colors"
-        aria-label="Share via email"
-      >
-        <Mail className="w-6 h-6" />
-      </button>
+            <button
+              onClick={() => setIsEmailModalOpen(true)}
+              className="text-orange-500 hover:text-orange-600 transition-colors"
+              aria-label="Share via email"
+            >
+              <Mail className="w-6 h-6" />
+            </button>
 
-      {/* Modal */}
-      <EmailModalProps
-        isOpen={isEmailModalOpen}
-        setIsEmailModalOpen={setIsEmailModalOpen}
-      />
+            <EmailModalProps
+              isOpen={isEmailModalOpen}
+              setIsEmailModalOpen={setIsEmailModalOpen}
+            />
           </div>
         </div>
       </div>
 
-      {/* Products Grid */}
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

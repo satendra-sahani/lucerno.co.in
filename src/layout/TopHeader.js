@@ -32,20 +32,13 @@ const TopHeader = () => {
       className="bg-gray-900 text-white text-sm py-2 px-4"
     >
       <div className="container mx-auto flex justify-between items-center">
-        {/* Left - Accessibility */}
         <p className="bg-orange-700 text-white px-2 py-1 rounded">Accessibility</p>
-
-        {/* Center - Logo (Visible on md and above) */}
         <div className="flex lg:hidden mx-auto">
-         <img src="/assets/logo.png" className='h-100 w-[9rem]'/>
+          <img src="/assets/logo.png" className='h-100 w-[9rem]' />
         </div>
-
-        {/* Right - Main Menu (Hidden on md and smaller screens) */}
         <div className="hidden lg:flex items-center space-x-4">
           <a>Investor Relations</a>
           <a>Contact Us</a>
-
-          {/* English Dropdown */}
           <div className="relative">
             <button
               onClick={toggleMenuEnglish}
@@ -66,8 +59,6 @@ const TopHeader = () => {
                 />
               </svg>
             </button>
-
-            {/* English Dropdown Menu */}
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: english ? 1 : 0, y: english ? 0 : -20 }}
@@ -80,8 +71,6 @@ const TopHeader = () => {
               </ul>
             </motion.div>
           </div>
-
-          {/* Global Dropdown */}
           <div className="relative">
             <button
               onClick={toggleMenuGlobal}
@@ -102,8 +91,6 @@ const TopHeader = () => {
                 />
               </svg>
             </button>
-
-            {/* Global Dropdown Menu */}
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: global ? 1 : 0, y: global ? 0 : -20 }}
@@ -122,8 +109,6 @@ const TopHeader = () => {
           </div>
           <a>FAQ</a>
           <a>Fabricators Websites</a>
-
-          {/* Social Icons */}
           {socialIcons.map(({ Icon, href }, index) => (
             <motion.a
               key={index}
@@ -135,8 +120,6 @@ const TopHeader = () => {
               <Icon className="w-4 h-4" />
             </motion.a>
           ))}
-
-          {/* Search Bar */}
           <div className="relative">
             <input
               type="text"
@@ -145,8 +128,6 @@ const TopHeader = () => {
             />
           </div>
         </div>
-
-        {/* Mobile view - Search Icon and Accessibility */}
         <div className="flex items-center space-x-4 lg:hidden">
           <FaSearch className="text-white w-5 h-5 cursor-pointer hover:text-gray-300" />
         </div>

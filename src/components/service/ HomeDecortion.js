@@ -1,71 +1,60 @@
-'use client'
-
-import React from 'react'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
 
-const HomeDecoration = () => {
-  const images = [
-    { src: "/assets/home-decor/living-room.jpg", alt: "Living Room", direction: { hidden: { y: -100, opacity: 0 }, visible: { y: 0, opacity: 1 } } },
-    { src: "/assets/home-decor/bedroom.jpg", alt: "Bedroom", direction: { hidden: { x: -100, opacity: 0 }, visible: { x: 0, opacity: 1 } } },
-    { src: "/assets/home-decor/kitchen.jpg", alt: "Kitchen", direction: { hidden: { x: 100, opacity: 0 }, visible: { x: 0, opacity: 1 } } },
-    { src: "/assets/home-decor/bathroom.jpg", alt: "Bathroom", direction: { hidden: { y: 100, opacity: 0 }, visible: { y: 0, opacity: 1 } } },
-  ]
 
+const decorationItems = [
+  {
+    id: 1,
+    title: "Minimalist Wall Art",
+    description: "Add a touch of elegance with our minimalist wall art pieces.",
+    imageUrl: "/assets/home-decor/home-dec1.jpg"
+  },
+  {
+    id: 2,
+    title: "Cozy Throw Pillows",
+    description: "Transform your space with our comfortable and stylish throw pillows.",
+    imageUrl: "/assets/home-decor/home-deco2.jpg"
+  },
+  {
+    id: 3,
+    title: "Elegant Vases",
+    description: "Elevate your decor with our collection of elegant vases.",
+    imageUrl: "/assets/home-decor/home-deco3.jpg"
+  },
+  {
+    id: 4,
+    title: "Rustic Wall Clock",
+    description: "Add character to your walls with our rustic wall clocks.",
+    imageUrl: "/assets/home-decor/home-deco4.jpg"
+  }
+]
+
+export default function HomeDecoration() {
   return (
-    <section className="py-16 px-4 md:px-8 lg:px-16 bg-gradient-to-br from-pink-50 to-blue-50">
-      <div className="container mx-auto">
-        <motion.h1 
-          className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-center text-gray-700 mb-12"
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-700 to-gray-900">
-            Home Decoration
-          </span>
-        </motion.h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-12">
-          <div className="grid grid-cols-2 gap-4">
-            {images.map((image, index) => (
-              <motion.div
-                key={image.alt}
-                initial="hidden"
-                animate="visible"
-                variants={image.direction}
-                transition={{ duration: 0.5, delay: index * 0.5 }}
-              >
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  width={400}
-                  height={300}
-                  className="rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 object-cover w-full h-auto"
-                />
-              </motion.div>
-            ))}
-          </div>
-          <motion.div 
-            className="space-y-6"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 2 }}
-          >
-            <h3 className="text-2xl md:text-3xl font-semibold text-gray-800">Transform Your Living Space</h3>
-            <p className="text-muted-foreground text-lg">
-              Our exquisite home decor collection brings elegance and charm to any room. From stylish wall art to cozy throw pillows, we have everything you need to create a personalized and inviting atmosphere.
-            </p>
-            <button 
-              size="lg"
-              className="bg-gradient-to-r from-cyan-700 to-gray-900 text-white font-semibold py-2 px-6 rounded-full hover:from-pink-600 hover:to-blue-600 transition-all duration-300 transform hover:scale-105"
-            >
-              Explore Now
-            </button>
-          </motion.div>
+    <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-50">
+      <div className="container px-4 md:px-6 mx-auto">
+        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-12">Home Decoration</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {decorationItems.map((item) => (
+            <div key={item.id} className="overflow-hidden transition-all border rounded duration-200 hover:shadow-lg">
+              <div className="p-0">
+                <div className="relative aspect-[4/3] w-full overflow-hidden">
+                  <Image
+                    src={item.imageUrl}
+                    alt={item.title}
+                    layout="fill"
+                    objectFit="cover"
+                    className="transition-all duration-300 hover:scale-105"
+                  />
+                </div>
+                <div className="p-4">
+                  <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
+                  <p className="text-sm text-gray-600">{item.description}</p>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
   )
 }
-
-export default HomeDecoration

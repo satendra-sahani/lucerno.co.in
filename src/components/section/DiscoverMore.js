@@ -1,80 +1,97 @@
-'use client'
+import Image from "next/image"
+import Link from "next/link"
 
-import { useState } from 'react'
-import Image from 'next/image'
-import { motion } from 'framer-motion'
-import { ShoppingCart } from 'lucide-react'
-
-const products = [
-  { id: 1, name: 'Elegant Vase', price: '$49.99', image: '/assets/home-decor/home-dec1.jpg' },
-  { id: 2, name: 'Decorative Pillow', price: '$29.99', image: '/assets/home-decor/home-deco2.jpg' },
-  { id: 3, name: 'Wall Clock', price: '$39.99', image: '/assets/home-decor/home-deco3.jpg' },
-  { id: 4, name: 'Scented Candle', price: '$19.99', image: '/assets/home-decor/home-deco4.jpg' },
-]
-
-export default function HomeDecorProductGrid() {
-  const [hoveredId, setHoveredId] = useState(null)
+export default function Component() {
+  const categories = [
+    {
+      title: "BATHROOM TILES",
+      image: "/assets/home-page-img/bathroom-tiles1.jpg",
+      alt: "Modern bathroom with beige tiles and freestanding bathtub",
+      href: "/bathroom-tiles"
+    },
+    {
+      title: "KITCHEN TILES",
+      image: "/assets/home-page-img/bathroom-tiles2.jpg",
+      alt: "Contemporary kitchen with hexagonal backsplash tiles",
+      href: "/kitchen-tiles"
+    },
+    {
+      title: "LIVING ROOM TILES",
+      image: "/assets/home-page-img/bathroom-tiles3.jpg",
+      alt: "Elegant living room with large format wall tiles",
+      href: "/living-room-tiles"
+    },
+    {
+      title: "BEDROOM TILES",
+      image: "/assets/home-page-img/bathroom-tiles4.jpg",
+      alt: "Modern bedroom with herringbone pattern flooring",
+      href: "/bedroom-tiles"
+    },
+    {
+      title: "OUTDOOR TILES",
+      image: "/assets/home-page-img/bathroom-tiles5.jpg",
+      alt: "Outdoor dining area with dark stone-look tiles",
+      href: "/outdoor-tiles"
+    },
+    {
+      title: "COMMERCIAL TILES",
+      image: "/assets/home-page-img/bathroom-tiles6.jpg",
+      alt: "Commercial space with decorative blue wall tiles",
+      href: "/commercial-tiles"
+    }
+  ]
 
   return (
-    <div className="container mx-auto px-4 py-8 mt-5">
-       <h1 class="text-6xl font-extrabold text-center text-gray-700 bg-clip-text bg-gradient-to-r from-pink-300 to-blue-300 mb-12">Home Decoration</h1>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-5">
-        <motion.div 
-          className="lg:col-span-1 bg-background p-6 rounded-lg shadow-md order-2 lg:order-1"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <h2 className="text-3xl font-bold mb-4 text-primary">Elevate Your Space</h2>
-          <p className="text-muted-foreground mb-4">
-            Transform your home with our exquisite collection of home decor items. From elegant vases to stylish wall clocks, each piece is carefully curated to add a touch of sophistication and personality to your living spaces.
+    <>
+      <div className="container mx-auto px-4 py-12">
+        <div className="text-center mb-12">
+          <h1 className="text-3xl md:text-4xl font-bold mb-6">Tiles by Space</h1>
+          <p className="text-gray-600 max-w-3xl mx-auto">
+            Your spaces are a reflection of your tastes. Find design inspiration right here! Whether you are looking for Kitchen tiles, Bathroom tiles or
+            tiles to spruce up your living room, your search ends here. Explore a wide variety of tile designs that suit your requirements.
           </p>
-          <p className="text-muted-foreground mb-6">
-            Our products blend form and function, ensuring that your home not only looks beautiful but also reflects your unique style. Whether you're looking for a statement piece or subtle accents, our collection has something for every taste and interior design theme.
-          </p>
-          <motion.button
-            className="bg-gray-700 text-white px-6 py-3 rounded-full transition-colors duration-300 flex items-center justify-center space-x-2"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-           
-           <a href='/lucerno-porcelain-collection'> <span>Explore Now</span></a>
-          </motion.button>
-        </motion.div>
-        <motion.div 
-          className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6 order-1 lg:order-2"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          {products.map((product) => (
-            <motion.div
-              key={product.id}
-              className="bg-card rounded-lg shadow-lg overflow-hidden cursor-pointer group"
-              whileHover={{ scale: 1.03 }}
-              onHoverStart={() => setHoveredId(product.id)}
-              onHoverEnd={() => setHoveredId(null)}
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {categories.map((category, index) => (
+            <Link
+              key={index}
+              href={category.href}
+              className="group block"
             >
-              <div className="relative h-64 overflow-hidden">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
                 <Image
-                  src={product.image}
-                  alt={product.name}
+                  src={category.image}
+                  alt={category.alt}
                   fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-110"
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               </div>
-              <motion.div 
-                className="p-4"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: hoveredId === product.id ? 1 : 0.8 }}
-              >
-                <h3 className="text-lg font-semibold text-card-foreground">{product.name}</h3>
-                <p className="text-muted-foreground">{product.price}</p>
-              </motion.div>
-            </motion.div>
+              <h2 className="mt-4 text-lg font-semibold text-center"><a href="/products">{category.title}</a></h2>
+            </Link>
           ))}
-        </motion.div>
+        </div>
+        <div className="w-full text-center mt-5">
+          <button className="border border-gray-900 py-2 px-2 rounded">
+            <a href="/product">View All Tiles</a>
+          </button>
+        </div>
       </div>
-    </div>
+
+
+      <div class="nt-wrapper collection-wrapper landing-featured-collection home-landing-featured-collection">
+
+        <div class="container mx-auto">
+          <img src="https://www.nitco.in/images/catalogue-maker-banner-home.jpg?v=01102023" class="desktop-banner" style={{ width: '100%', marginBottom: '60px' }} />
+
+        </div>
+
+      </div>
+
+
+
+    </>
+
   )
 }

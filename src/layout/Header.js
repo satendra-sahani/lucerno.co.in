@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Menu, X, ChevronDown, ShoppingCart,Heart , Search} from 'lucide-react'
+import { Menu, X, ChevronDown, ShoppingCart, Heart, Search } from 'lucide-react'
 
 const menuItems = [
   { name: 'Home', href: '/' },
@@ -56,12 +56,9 @@ export default function Header() {
     <header className={`sticky top-0 z-50 bg-gradient-to-r from-cyan-700 to-gray-900  border-b border-gray-200 transition-all duration-300 ${scrolled ? 'shadow-lg' : ''}`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
           <Link href="/" className="flex-shrink-0">
             <img src="/assets/white-logo.png" className='  w-40 h-auto' alt="Logo" />
           </Link>
-
-          {/* Desktop Menu */}
           <nav className="hidden lg:flex items-center space-x-4">
             {menuItems.map((item, index) => (
               <div key={item.name} className="relative group">
@@ -105,65 +102,49 @@ export default function Header() {
               </div>
             ))}
           </nav>
-
-          {/* Cart Icon */}
           <div className="relative flex gap-2 items-center">
-      {/* Heart Icon */}
-      <Heart className="w-6 h-6  cursor-pointer hidden lg:flex text-white" />
-
-      {/* Shopping Cart with Notification Badge */}
-      <div className="relative hidden lg:flex">
-       <a href='/favorites'><ShoppingCart className="w-6 h-6 text-white cursor-pointer" /></a> 
-        {/* Badge */}
-        <div className="absolute -top-2 -right-2 h-5 w-5 bg-orange-700 text-white rounded-full flex items-center justify-center text-xs">
-          0
-        </div>
-      </div>
-
-      {/* Search Icon */}
-      <button
-        onClick={handleSearchClick}
-        className="w-6 h-6 text-gray-600 flex items-center justify-center ml-2 cursor-pointer hidden lg:flex"
-      >
-        <Search className="w-6 h-6 text-white" />
-      </button>
-
-      {/* Search Input */}
-      <motion.div
-        initial={{ opacity: 0, width: 0 }}
-        animate={{ opacity: isSearchOpen ? 1 : 0, width: isSearchOpen ? '200px' : 0 }}
-        exit={{ opacity: 0, width: 0 }}
-        transition={{ duration: 0.3 }}
-        className="overflow-hidden"
-      >
-        <input
-          type="text"
-          placeholder="Search..."
-          className="w-full py-2 px-3 text-gray-600 border border-gray-300 rounded-md focus:outline-none"
-        />
-      </motion.div>
-    </div>
-
-          {/* Mobile Menu Toggle */}
+            <Heart className="w-6 h-6  cursor-pointer hidden lg:flex text-white" />
+            <div className="relative hidden lg:flex">
+              <a href='/favorites'><ShoppingCart className="w-6 h-6 text-white cursor-pointer" /></a>
+              <div className="absolute -top-2 -right-2 h-5 w-5 bg-orange-700 text-white rounded-full flex items-center justify-center text-xs">
+                0
+              </div>
+            </div>
+            <button
+              onClick={handleSearchClick}
+              className="w-6 h-6 text-gray-600 flex items-center justify-center ml-2 cursor-pointer hidden lg:flex"
+            >
+              <Search className="w-6 h-6 text-white" />
+            </button>
+            <motion.div
+              initial={{ opacity: 0, width: 0 }}
+              animate={{ opacity: isSearchOpen ? 1 : 0, width: isSearchOpen ? '200px' : 0 }}
+              exit={{ opacity: 0, width: 0 }}
+              transition={{ duration: 0.3 }}
+              className="overflow-hidden"
+            >
+              <input
+                type="text"
+                placeholder="Search..."
+                className="w-full py-2 px-3 text-gray-600 border border-gray-300 rounded-md focus:outline-none"
+              />
+            </motion.div>
+          </div>
           <div className='flex gap-4 items-center'>
-          <div className="relative lg:hidden">
-       <a href='/favorites'><ShoppingCart className="w-6 h-6 text-white cursor-pointer" /></a> 
-        {/* Badge */}
-        <div className="absolute -top-2 -right-2 h-5 w-5 bg-orange-700 text-white rounded-full flex items-center justify-center text-xs">
-          0
+            <div className="relative lg:hidden">
+              <a href='/favorites'><ShoppingCart className="w-6 h-6 text-white cursor-pointer" /></a>
+              <div className="absolute -top-2 -right-2 h-5 w-5 bg-orange-700 text-white rounded-full flex items-center justify-center text-xs">
+                0
+              </div>
+            </div>
+            <button
+              className="lg:hidden text-gray-600 hover:text-gray-900"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <X className="w-6 h-6 text-white" /> : <Menu className="w-6 h-6 text-white" />}
+            </button>
+          </div>
         </div>
-      </div>
-          <button
-            className="lg:hidden text-gray-600 hover:text-gray-900"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? <X className="w-6 h-6 text-white" /> : <Menu className="w-6 h-6 text-white" />}
-          </button>
-        </div>
-        </div>
-       
-
-        {/* Mobile Menu */}
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div

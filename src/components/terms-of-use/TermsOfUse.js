@@ -4,7 +4,7 @@ import { ChevronRight } from 'lucide-react'
 export default function TermsOfUse() {
     return (
         <div className="min-h-screen bg-background text-sm ">
-            {/* Breadcrumb navigation */}
+           
             <nav className="max-w-6xl mx-auto px-4 py-4 sm:px-6 lg:px-8" aria-label="Breadcrumb">
                 <ol className="flex items-center space-x-2 text-sm">
                     <li>
@@ -24,8 +24,6 @@ export default function TermsOfUse() {
                     </li>
                 </ol>
             </nav>
-
-            {/* Main content */}
             <article className="max-w-6xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
                 <h1 className="text-4xl font-bold tracking-tight text-foreground mb-8">Terms of Use</h1>
 

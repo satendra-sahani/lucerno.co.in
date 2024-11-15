@@ -25,15 +25,13 @@ export default function Form() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        // Handle form submission
-        console.log(formData)
+
     }
 
     return (
         <form onSubmit={handleSubmit} className="max-w-4xl mx-auto p-4 space-y-6 mt-5">
             <h3 className='text-5xl font-extrabold text-center text-gray-700 bg-clip-text bg-gradient-to-r from-pink-300 to-blue-300 mb-12'>Connect With Us</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* First Name & Last Name */}
                 <div className="space-y-2">
                     <label className="block">
                         <span className="text-sm">
@@ -65,7 +63,6 @@ export default function Form() {
                     </label>
                 </div>
 
-                {/* Email & Phone */}
                 <div className="space-y-2">
                     <label className="block">
                         <span className="text-sm">
@@ -113,7 +110,6 @@ export default function Form() {
                     </label>
                 </div>
 
-                {/* Country & City */}
                 <div className="space-y-2">
                     <label className="block">
                         <span className="text-sm">
@@ -302,7 +298,6 @@ export default function Form() {
                     </label>
                 </div>
 
-                {/* Street & Zip Code */}
                 <div className="space-y-2">
                     <label className="block">
                         <span className="text-sm">Street</span>
@@ -328,7 +323,6 @@ export default function Form() {
                     </label>
                 </div>
 
-                {/* Company & I am */}
                 <div className="space-y-2">
                     <label className="block">
                         <span className="text-sm">Company</span>
@@ -360,7 +354,6 @@ export default function Form() {
                                 <option value="Fabricator">Fabricator</option>
                                 <option value="Distributor">Distributor</option>
                                 <option value="Other">Other</option>
-                                {/* Add options */}
                             </select>
                             <ChevronDown className="absolute right-2 top-1/2 transform -translate-y-1/2 w-4 h-4 pointer-events-none" />
                         </div>
@@ -368,7 +361,6 @@ export default function Form() {
                 </div>
             </div>
 
-            {/* Subject */}
             <div className="space-y-2">
                 <label className="block">
                     <span className="text-sm">
@@ -387,14 +379,12 @@ export default function Form() {
                             <option value="Other">Other</option>
 
 
-                            {/* Add subject options */}
                         </select>
                         <ChevronDown className="absolute right-2 top-1/2 transform -translate-y-1/2 w-4 h-4 pointer-events-none" />
                     </div>
                 </label>
             </div>
 
-            {/* Interested In */}
             <div className="space-y-2">
                 <label className="block">
                     <span className="text-sm">Interested In</span>
@@ -414,7 +404,6 @@ export default function Form() {
                 </label>
             </div>
 
-            {/* Message */}
             <div className="space-y-2">
                 <label className="block">
                     <span className="text-sm">
@@ -430,8 +419,6 @@ export default function Form() {
                     />
                 </label>
             </div>
-
-            {/* Newsletter Signup */}
             <div className="flex items-start gap-2">
                 <input
                     type="checkbox"
@@ -445,7 +432,6 @@ export default function Form() {
                 </label>
             </div>
 
-            {/* Terms and Privacy */}
             <div className="text-center text-sm">
                 By providing your details and clicking Submit, you acknowledge and agree to our website{' '}
                 <a href="/privacy-policy" className="text-orange-500 hover:underline">
@@ -458,7 +444,6 @@ export default function Form() {
                 .
             </div>
 
-            {/* Submit Button */}
             <div className="text-center">
                 <button
                     type="submit"
