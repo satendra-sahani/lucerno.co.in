@@ -28,7 +28,7 @@ const Video = () => {
   return (
     <div className="w-full max-w-[1400px] mx-auto px-4 py-8">
 
-      <h1 class="text-6xl font-extrabold text-center text-gray-700 bg-clip-text bg-gradient-to-r from-pink-300 to-blue-300 mb-12">
+      <h1 class="text-6xl font-extrabold text-center text-gray-900 bg-clip-text bg-gradient-to-r from-pink-300 to-blue-300 mb-12">
         Shaped by nature: The new Pebbles collection
       </h1>
 

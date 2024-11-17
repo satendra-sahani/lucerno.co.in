@@ -4,7 +4,7 @@ export default function Component() {
   return (
     <section className="w-full py-12 md:py-16 lg:py-20">
       <div className="container px-4 md:px-6 mx-auto">
-        <h2 className="text-3xl font-bold tracking-tighter text-center mb-8 md:mb-12 lg:text-4xl">
+        <h2 className="text-6xl font-extrabold text-center text-gray-900 bg-clip-text bg-gradient-to-r from-pink-300 to-blue-300 mb-12">
           Featured Collections
         </h2>
 

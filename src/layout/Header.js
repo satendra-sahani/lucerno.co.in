@@ -30,6 +30,7 @@ const menuItems = [
   { name: 'About Us', href: "/about-us" },
   { name: 'Careers', href: '/careers' },
   { name: 'Contact Us', href: '/contact-us' },
+  { name: 'Login', href: '/login' },
 ]
 
 export default function Header() {

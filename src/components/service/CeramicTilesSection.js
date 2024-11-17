@@ -60,10 +60,10 @@ const ceramicTiles = [
 export default function CeramicTiles() {
 
   return (
-    <section className="w-full bg-gradient-to-r from-gray-50 to-gray-100">
-      <div className="container px-4 md:px-6 mx-auto">
+    <section className="w-full bg-gradient-to-r from-gray-50 to-gray-100 ">
+      <div className="container px-4 md:px-6 mx-auto mt-5">
         <motion.h2
-          className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8"
+          className="text-6xl font-extrabold text-center text-gray-900 bg-clip-text bg-gradient-to-r from-pink-300 to-blue-300 mb-12"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}

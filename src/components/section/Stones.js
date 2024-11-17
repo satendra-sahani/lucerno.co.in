@@ -28,7 +28,7 @@ export default function Stones() {
     <section className="w-full py-12 md:py-16 lg:py-20">
       <div className="container px-4 md:px-6 mx-auto">
         <div className="text-center max-w-[800px] mx-auto mb-12">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+          <h2 className="text-6xl font-extrabold text-center text-gray-900 bg-clip-text bg-gradient-to-r from-pink-300 to-blue-300 mb-12">
             Discover Natural Stones
           </h2>
           <p className="mt-4 text-muted-foreground">

@@ -45,7 +45,7 @@ export default function Component() {
     <>
       <div className="container mx-auto px-4 py-12">
         <div className="text-center mb-12">
-          <h1 className="text-3xl md:text-4xl font-bold mb-6">Tiles by Space</h1>
+          <h1 className="text-6xl font-extrabold text-center text-gray-900 bg-clip-text bg-gradient-to-r from-pink-300 to-blue-300 mb-12">Tiles by Space</h1>
           <p className="text-gray-600 max-w-3xl mx-auto">
             Your spaces are a reflection of your tastes. Find design inspiration right here! Whether you are looking for Kitchen tiles, Bathroom tiles or
             tiles to spruce up your living room, your search ends here. Explore a wide variety of tile designs that suit your requirements.
@@ -54,11 +54,7 @@ export default function Component() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {categories.map((category, index) => (
-            <Link
-              key={index}
-              href={category.href}
-              className="group block"
-            >
+            <div>
               <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
                 <Image
                   src={category.image}
@@ -68,8 +64,8 @@ export default function Component() {
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               </div>
-              <h2 className="mt-4 text-lg font-semibold text-center"><a href="/products">{category.title}</a></h2>
-            </Link>
+              <a href="/products" className="mt-4 text-lg font-semibold text-center">{category.title}</a>
+        </div>
           ))}
         </div>
         <div className="w-full text-center mt-5">

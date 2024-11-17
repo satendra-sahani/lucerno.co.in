@@ -69,7 +69,9 @@
   margin: 6px -18px;
   border-radius: 50%;
 }
-
+.login{
+  padding:3rem;
+}
 
 
 
@@ -94,11 +96,17 @@
   .product-slider .slick-dots {
     bottom: -4px !important;
   }
+  .login{
+    padding:1rem;
+  }
 }
 
 @media (max-width:375px) {
   .text-6xl {
     font-size: 2rem !important;
+  }
+  .login{
+    padding:1rem;
   }
 
   .text-5xl {

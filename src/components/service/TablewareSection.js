@@ -57,7 +57,7 @@ export default function InspiringTableware() {
   return (
     <section className="w-full   bg-gray-50">
       <div className="container px-4 md:px-6 mx-auto">
-        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">Inspiring Tableware</h2>
+        <h2 className="text-6xl font-extrabold text-center text-gray-900 bg-clip-text bg-gradient-to-r from-pink-300 to-blue-300 mb-12">Inspiring Tableware</h2>
         <p className="text-xl text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
           Elevate your dining experience with our curated collection of exquisite tableware.
         </p>

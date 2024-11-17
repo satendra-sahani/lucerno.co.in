@@ -32,7 +32,7 @@ export default function HomeDecoration() {
   return (
     <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-50">
       <div className="container px-4 md:px-6 mx-auto">
-        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-12">Home Decoration</h2>
+        <h2 className="text-6xl font-extrabold text-center text-gray-900 bg-clip-text bg-gradient-to-r from-pink-300 to-blue-300 mb-12 ">Home Decoration</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {decorationItems.map((item) => (
             <div key={item.id} className="overflow-hidden transition-all border rounded duration-200 hover:shadow-lg">

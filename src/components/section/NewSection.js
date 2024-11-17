@@ -47,7 +47,7 @@ export default function Component() {
               <h2 className="text-2xl font-bold mb-4">{product.title}</h2>
               <p className="text-gray-600 mb-6 flex-grow">{product.description}</p>
               <Link href='/products' className="mt-auto">
-                <span className="bg-black text-white py-2 px-4 rounded hover:bg-gray-800 transition duration-300 inline-block text-center w-full">
+                <span className="bg-gradient-to-r from-cyan-700 to-gray-900  text-white py-2 px-4 rounded-lg  transition duration-300 inline-block text-center w-full">
                   {product.cta} →
                 </span>
               </Link>
