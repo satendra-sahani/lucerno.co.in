@@ -26,8 +26,10 @@ export default function Footer() {
     <footer className="bg-gray-700 text-white py-8 px-4 md:px-6">
       <div className="container mx-auto flex flex-col md:flex-row  flex-wrap justify-between items-center gap-6">
         <div className="flex-shrink-0">
-          <Link href="/">
-            <img src="/assets/white-logo.png" className="w-40 h-auto" alt="Logo" />
+        <Link href="/" className="flex items-center space-x-2">
+          <img src="/Icon.png" className="w-12 h-auto" alt="Icon Logo" />
+            <img src="/assets/white-logo.png" className="w-40 h-auto" alt="White Logo" />
+           
           </Link>
         </div>
         <nav className="flex gap-4 text-sm justify-center flex-wrap">

@@ -57,8 +57,10 @@ export default function Header() {
     <header className={`sticky top-0 z-50 bg-gradient-to-r from-cyan-700 to-gray-900  border-b border-gray-200 transition-all duration-300 ${scrolled ? 'shadow-lg' : ''}`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          <Link href="/" className="flex-shrink-0">
-            <img src="/assets/white-logo.png" className='  w-40 h-auto' alt="Logo" />
+          <Link href="/" className="flex items-center space-x-2">
+          <img src="/Icon.png" className="w-12 h-auto" alt="Icon Logo" />
+            <img src="/assets/white-logo.png" className="w-40 h-auto" alt="White Logo" />
+           
           </Link>
           <nav className="hidden lg:flex items-center space-x-4">
             {menuItems.map((item, index) => (
@@ -132,12 +134,12 @@ export default function Header() {
             </motion.div>
           </div>
           <div className='flex gap-4 items-center'>
-            <div className="relative lg:hidden">
+            {/* <div className="relative lg:hidden">
               <a href='/favorites'><ShoppingCart className="w-6 h-6 text-white cursor-pointer" /></a>
               <div className="absolute -top-2 -right-2 h-5 w-5 bg-orange-700 text-white rounded-full flex items-center justify-center text-xs">
                 0
               </div>
-            </div>
+            </div> */}
             <button
               className="lg:hidden text-gray-600 hover:text-gray-900"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
