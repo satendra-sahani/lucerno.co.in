@@ -28,7 +28,7 @@ export default function ResetPassword() {
                     <motion.div
                         className="text-3xl font-bold text-center text-gray-800 mb-6 "
                     >
-                        <img src="/assets/white-logo.png" />
+                      <a href='/'>  <img src="/assets/white-logo.png" /></a>
                     </motion.div>
                     <form onSubmit={handleSubmit} className="space-y-8 ">
                         <div className="space-y-3">

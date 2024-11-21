@@ -3,6 +3,7 @@ import Hero from '@/components/Hero'
 import Content from '@/components/section/Content'
 import DiscoverMore from '@/components/section/DiscoverMore'
 import NewSection from '@/components/section/NewSection'
+import SliderPage from '@/components/section/SliderPage'
 import Stones from '@/components/section/Stones'
 import Store from '@/components/section/Store'
 import TilesSection from '@/components/section/TilesSection'
@@ -16,6 +17,7 @@ const index = () => {
     <div>
       <Header />
       <Hero />
+       <SliderPage/> 
       <NewSection />
       <Video />
       <DiscoverMore />

@@ -34,7 +34,7 @@ export default function LoginPage() {
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ delay: 0.2 }}
                     >
-                        <img src="/assets/white-logo.png" />
+                      <a href='/'>  <img src="/assets/white-logo.png" /></a>
                     </motion.div>
                     <form onSubmit={handleSubmit} className="space-y-8 ">
                         <div className="space-y-3">
