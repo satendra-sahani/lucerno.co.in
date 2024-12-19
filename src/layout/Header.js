@@ -3,34 +3,45 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
-import Image from 'next/image'
+// import Image from 'next/image'
 import { Menu, X, ChevronDown, ShoppingCart, Heart, Search } from 'lucide-react'
 
 const menuItems = [
   { name: 'Home', href: '/' },
-  { name: 'Products', href: '/products' },
+  // { name: 'Products', href: '/products' },
   {
-    name: 'Design Inspiration',
+    name: 'Dining',
     dropdown: [
-      { name: 'Lucerno Porcelain Collection', href: '/lucerno-porcelain-collection' },
-      { name: 'Whitelight Collection', href: '/whitelight-collection' },
-      { name: 'Milano 2022: Nature Awakens', href: '/milano-nature-awakens' }
+      { name: 'dining1', href: '/lucerno-porcelain-collection' },
+      { name: 'dining2', href: '/lucerno-porcelain-collection' },
+      { name: 'dining3', href: '/lucerno-porcelain-collection' },
     ]
   },
   {
-    name: 'Customer Service',
+    name: 'Decor',
     dropdown: [
-      { name: 'Care & Maintenance', href: '/care-maintenance' },
-      { name: 'Warranty', href: '/warranty' },
-      { name: 'Lucerno Hygiene Standard', href: '/lucerno-hygiene-standard' },
-      { name: 'Products Technical Info', href: '/products-technical-info' },
-      { name: 'FAQ', href: '/customer-service/faq' },
+      { name: 'decor 1', href: '/care-maintenance' },
+      { name: 'decor 2', href: '/warranty' },
     ]
   },
-  { name: 'About Us', href: "/about-us" },
-  { name: 'Careers', href: '/careers' },
+  {
+    name: 'Terrazzo & Concrete',
+    dropdown: [
+      { name: 'Terrazzo', href: '/care-maintenance' },
+      { name: 'Concrete', href: '/warranty' },
+    ]
+  },
+  {
+    name: 'Brand',
+    dropdown: [
+      { name: 'About', href: '/about-us' },
+      { name: 'Craftmnship', href: '/craftmanship' },
+    ]
+  },
+  // { name: 'About Us', href: "/about-us" },
+  // { name: 'Careers', href: '/careers' },
   { name: 'Contact Us', href: '/contact-us' },
-  { name: 'Login', href: '/login' },
+  // { name: 'Login', href: '/login' },
 ]
 
 export default function Header() {
@@ -49,17 +60,15 @@ export default function Header() {
   }
   const [isSearchOpen, setIsSearchOpen] = useState(false)
 
-  const handleSearchClick = () => {
-    setIsSearchOpen(!isSearchOpen)
-  }
+
 
   return (
-    <header className={`sticky top-0 z-50 bg-gradient-to-r from-cyan-700 to-gray-900  border-b border-gray-200 transition-all duration-300 ${scrolled ? 'shadow-lg' : ''}`}>
-      <div className="container mx-auto px-4">
+    <header style={{background:"black!important"}} className={`sticky top-0 z-50 bg-gradient-to-r from-cyan-700 to-gray-900  border-b border-gray-200 transition-all duration-300 ${scrolled ? 'shadow-lg' : ''} bg-black`}>
+      <div className="container mx-auto px-4 bg-black">
         <div className="flex items-center justify-between h-20">
           <Link href="/" className="flex items-center space-x-2">
-          <img src="/Icon.png" className="w-12 h-auto" alt="Icon Logo" />
-            <img src="/assets/white-logo.png" className="w-40 h-auto" alt="White Logo" />
+          {/* <img src="/Icon.png" className="w-12 h-auto" alt="Icon Logo" /> */}
+          <img src="/assets/logo.png" className="w-40 h-auto" alt="White Logo" />
            
           </Link>
           <nav className="hidden lg:flex items-center space-x-4">
@@ -105,7 +114,7 @@ export default function Header() {
               </div>
             ))}
           </nav>
-          <div className="relative flex gap-2 items-center">
+          {/* <div className="relative flex gap-2 items-center">
             <Heart className="w-6 h-6  cursor-pointer hidden lg:flex text-white" />
             <div className="relative hidden lg:flex">
               <a href='/favorites'><ShoppingCart className="w-6 h-6 text-white cursor-pointer" /></a>
@@ -132,7 +141,7 @@ export default function Header() {
                 className="w-full py-2 px-3 text-gray-600 border border-gray-300 rounded-md focus:outline-none"
               />
             </motion.div>
-          </div>
+          </div> */}
           <div className='flex gap-4 items-center'>
             {/* <div className="relative lg:hidden">
               <a href='/favorites'><ShoppingCart className="w-6 h-6 text-white cursor-pointer" /></a>

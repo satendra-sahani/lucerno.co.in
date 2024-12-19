@@ -1,39 +1,39 @@
-'use client'
+"use client";
 
-import Image from 'next/image'
-import { useSpring, animated, config } from 'react-spring'
-import { useInView } from 'react-intersection-observer'
+import Image from "next/image";
+import { useSpring, animated, config } from "react-spring";
+import { useInView } from "react-intersection-observer";
 
 const AnimatedSection = ({ children }) => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
-  })
+  });
 
   const animation = useSpring({
     opacity: inView ? 1 : 0,
-    transform: inView ? 'translateY(0)' : 'translateY(50px)',
+    transform: inView ? "translateY(0)" : "translateY(50px)",
     config: config.molasses,
-  })
+  });
 
   return (
     <animated.div ref={ref} style={animation}>
       {children}
     </animated.div>
-  )
-}
+  );
+};
 
 export default function AboutPage() {
   const [headerRef, headerInView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
-  })
+  });
 
   const headerAnimation = useSpring({
     opacity: headerInView ? 1 : 0,
-    transform: headerInView ? 'translateY(0)' : 'translateY(-50px)',
+    transform: headerInView ? "translateY(0)" : "translateY(-50px)",
     config: config.molasses,
-  })
+  });
 
   const data = [
     {
@@ -48,19 +48,21 @@ export default function AboutPage() {
       img: "/assets/ceramic-tiles/classic-white-tile.jpg",
       title: "Ceramic Tiles",
     },
-  ]
+  ];
 
   return (
     <div className="min-h-screen bg-background ">
-      <animated.header ref={headerRef} style={headerAnimation} className="bg-gradient-to-r from-cyan-700 to-gray-900   text-primary-foreground  text-center p-3">
+      {/* <animated.header ref={headerRef} style={headerAnimation} className="bg-gradient-to-r from-cyan-700 to-gray-900   text-primary-foreground  text-center p-3">
         <h1 class="text-6xl font-extrabold text-center text-white mb-12">About Our Company</h1>
         <p className="text-xl md:text-2xl text-white">Crafting Excellence in Home Decor</p>
-      </animated.header>
+      </animated.header> */}
 
       <main className="container mx-auto px-4 py-16">
         <AnimatedSection>
           <section className="mb-20">
-            <h5 className="text-6xl font-extrabold text-center text-gray-900 bg-clip-text bg-gradient-to-r from-pink-300 to-blue-300 mb-12">Our Story</h5>
+            <h5 className="text-6xl font-extrabold text-center text-gray-900 bg-clip-text bg-gradient-to-r from-pink-300 to-blue-300 mb-12">
+              About US
+            </h5>
 
             <div className="">
               <div className="">
@@ -74,23 +76,40 @@ export default function AboutPage() {
               </div>
               <div className=" mt-5">
                 <p className="text-lg mb-4">
-                  Founded in 2010, our company has been at the forefront of innovative home decor solutions. We believe that every home tells a story, and our products are designed to help you tell yours.
-                </p>
-                <p className="text-lg">
-                  From humble beginnings in a small workshop to our current state-of-the-art facilities, we've always maintained our commitment to quality, sustainability, and customer satisfaction.
+                  Lucerno is a luxury tableware and home decor brand that
+                  combines the elegance of ceramics with the sophistication of
+                  concrete terrazzo. Founded by Megha Pathre, a product designer
+                  with a passion for creating beautiful and functional pieces,
+                  and her father Mahesh Pathre, a retired bank manager with a
+                  keen eye for quality and craftsmanship, Lucerno is a
+                  family-run business that values tradition, innovation, and
+                  attention to detail. With a focus on creating unique and
+                  timeless pieces that bring people together, Lucerno's
+                  collection includes exquisite ceramic tableware, stunning
+                  concrete terrazzo decor, and elegant accessories that elevate
+                  the art of fine dining and living. From the initial design
+                  concept to the final product, every aspect of Lucerno's
+                  creations is carefully crafted to ensure that it not only
+                  looks stunning but also provides a luxurious and enjoyable
+                  experience. From the subtle curves of our ceramics to the
+                  textured beauty of our concrete& terrazzo decor, every detail
+                  is meticulously considered to create a truly exceptional
+                  product. By combining traditional craftsmanship with modern
+                  design sensibilities, Lucerno creates pieces that are both
+                  beautiful and functional, making every meal a special occasion
+                  and every space a reflection of refined taste.
                 </p>
               </div>
             </div>
           </section>
         </AnimatedSection>
 
-        <AnimatedSection>
+        {/* <AnimatedSection>
           <section className="mb-20">
             <h2 className="text-6xl font-extrabold text-center text-gray-900 bg-clip-text bg-gradient-to-r from-pink-300 to-blue-300 mb-12">Our Products</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {data.map((product, index) => (
                 <div key={index} className="bg-gray-700 rounded p-6 shadow-md text-center">
-                  {/* Image wrapper with fixed dimensions */}
                   <div className="w-[18rem] h-[18rem] mx-auto mb-4 flex items-center justify-center bg-gray-800 rounded-full overflow-hidden">
                     <img
                       src={product.img}
@@ -105,9 +124,9 @@ export default function AboutPage() {
             </div>
           </section>
 
-        </AnimatedSection>
+        </AnimatedSection> */}
 
-        <AnimatedSection>
+        {/* <AnimatedSection>
           <section className="mb-20">
             <h2 className="text-6xl font-extrabold text-center text-gray-900 bg-clip-text bg-gradient-to-r from-pink-300 to-blue-300 mb-12">Our Process</h2>
             <div className="flex flex-col items-center">
@@ -146,8 +165,8 @@ export default function AboutPage() {
             <p className="text-xl mb-8">Explore our collections and find the perfect pieces to express your unique style.</p>
             <button className="bg-gray-700  text-white rounded-lg px-6 py-3 font-semibold hover:bg-primary-hover transition">Shop Now</button>
           </section>
-        </AnimatedSection>
+        </AnimatedSection> */}
       </main>
     </div>
-  )
+  );
 }
