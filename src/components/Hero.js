@@ -9,7 +9,7 @@ import 'slick-carousel/slick/slick-theme.css'
 const slides = [
   {
     id: 1,
-    src: 'https://plus.unsplash.com/premium_photo-1714702845024-8afbbca28196?w=1200&q=80',
+    src: 'https://plus.unsplash.com/premium_photo-1714702846959-a4b4b38c76f0?w=1200&q=80',
     alt: 'Make your on ceramic tableware sets',
     title: 'Make your on ceramic tableware sets',
     subtitle: 'Introducing Lucerno ceramic tableware set maker',
