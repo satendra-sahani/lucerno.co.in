@@ -6,14 +6,14 @@ export default function ContactUs() {
   return (
     <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden">
 
-      <div Connect With Us
+      {/* <div Connect With Us
         className="absolute inset-0 bg-[url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%20from%202024-11-11%2014-42-57-Xmp816xV4m7dyHvuOGmSJHlccS7oUm.png')] 
         bg-cover bg-center bg-no-repeat"
         style={{
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
-      />
+      /> */}
 
       <div className="relative z-10 w-full max-w-4xl mx-auto px-4 py-16 md:py-24">
         <motion.div
