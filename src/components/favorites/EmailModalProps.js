@@ -69,7 +69,7 @@ export default function EmailModalProps({ isOpen, setIsEmailModalOpen }) {
                 <input
                   type="text"
                   id="subject"
-                  placeholder="Your favorite models by Caesarstone"
+                  placeholder="Your favorite models by Lucerno"
                   className="w-full rounded-md border border-gray-300 px-3 py-2 focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-500"
                   value={formData.subject}
                   onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
@@ -97,7 +97,7 @@ export default function EmailModalProps({ isOpen, setIsEmailModalOpen }) {
                 <textarea
                   id="message"
                   rows={4}
-                  placeholder="Dear customer,\nHere are your favorite models by caesarstone."
+                  placeholder="Dear customer,\nHere are your favorite models by Lucerno."
                   className="w-full rounded-md border border-gray-300 px-3 py-2 focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-500"
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}

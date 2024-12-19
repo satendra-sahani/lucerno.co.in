@@ -37,7 +37,7 @@ export default function ContactUs() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Send us your questions or feedback regarding your Caesarstone experience
+            Send us your questions or feedback regarding your Lucerno experience
           </motion.p>
         </motion.div>
       </div>

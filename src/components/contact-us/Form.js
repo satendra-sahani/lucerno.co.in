@@ -428,7 +428,7 @@ export default function Form() {
                     onChange={(e) => setFormData({ ...formData, newsletter: e.target.checked })}
                 />
                 <label htmlFor="newsletter" className="text-sm">
-                    Yes, sign me up to receive email communications from Caesarstone Ltd. about products, news, and events. I understand I can unsubscribe at any time.
+                    Yes, sign me up to receive email communications from Lucerno Ltd. about products, news, and events. I understand I can unsubscribe at any time.
                 </label>
             </div>
 

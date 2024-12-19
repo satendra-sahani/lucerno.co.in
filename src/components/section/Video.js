@@ -39,7 +39,7 @@ const Video = () => {
         <video
           className="absolute inset-0 w-full h-full"
           src="/assets/video-2.mp4"
-          title="The Pebbles Collection by Caesarstone - Shape by Nature"
+          title="The Pebbles Collection by Lucerno - Shape by Nature"
 
           autoPlay
           loop
