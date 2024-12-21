@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 
 export default function Certifications() {
   const certifications = [
@@ -39,6 +40,8 @@ export default function Certifications() {
       alt: "Halal Certification Logo"
     }
   ]
+
+  const navigate=useRouter()
 
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -88,7 +91,7 @@ export default function Certifications() {
             oven safe, and steel/metal marking test approved. These are essential in today's
             market as consumers continue to look for quality and safety assurance.
           </p>
-          <button className="bg-[#0A2B5D] text-white px-8 py-3 rounded hover:bg-[#0A2B5D]/90 transition-all duration-300 hover:shadow-lg transform hover:-translate-y-0.5">
+          <button onClick={()=>navigate.push("/about-us")} className="bg-[#0A2B5D] text-white px-8 py-3 rounded hover:bg-[#0A2B5D]/90 transition-all duration-300 hover:shadow-lg transform hover:-translate-y-0.5">
             Learn More
           </button>
         </div>

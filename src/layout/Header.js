@@ -63,7 +63,7 @@ export default function Header() {
 
 
   return (
-    <header style={{background:"black!important"}} className={`sticky top-0 z-50 bg-gradient-to-r from-cyan-700 to-gray-900  border-b border-gray-200 transition-all duration-300 ${scrolled ? 'shadow-lg' : ''} bg-black`}>
+    <header style={{background:"black!important"}} className={`sticky top-0 z-50   border-b border-gray-200 transition-all duration-300 ${scrolled ? 'shadow-lg' : ''} bg-black`}>
       <div className="container mx-auto px-4 bg-black">
         <div className="flex items-center justify-between h-20">
           <Link href="/" className="flex items-center space-x-2">
@@ -163,7 +163,7 @@ export default function Header() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="lg:hidden bg-gradient-to-r from-cyan-700 to-gray-900  text-white"
+              className="lg:hidden  text-white"
             >
               <nav className="py-4">
                 {menuItems.map((item, index) => (

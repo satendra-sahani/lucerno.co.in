@@ -1,5 +1,6 @@
 import Certifications from "@/components/Certifications";
 import Hero from "@/components/Hero";
+import Whatsapp from "@/components/Whatsapp";
 import Footer from "@/layout/Footer";
 import Header from "@/layout/Header";
 import React from "react";
@@ -122,7 +123,7 @@ const Index = () => {
         </div>
       </section>
       <Certifications/>
-
+      <Whatsapp/>
       <Footer />
     </div>
   );
